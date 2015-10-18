@@ -36,6 +36,8 @@ Servers connect to counterparts
 * Send Vouch (voucher mail + voucher_sig(vouched email))
 * Request recipient's public key
  * Receiver may return random, but valid value for non-existent addresses
+* Sender must have a PTR record
+ * Certs on IPs are not valid
 
 Receiving Server Restrictions
 * Receiver must not delete an email without user interaction
@@ -54,5 +56,10 @@ Receiving Server Restrictions
  * White-list sender
  * First- or Second- order vouch
  * Message is accompanied by a valid pre-send token
+* Receiving server must deny email with a host differing from TLS Cert CN
+ * Mailing lists must have a From: of the list
+ * Mailing lists should act as if they are forwarding email
 
 Each message must have a static, globally and temporally unique identifier
+
+
